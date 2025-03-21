@@ -30,13 +30,14 @@ twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-# theme: minima
 plugins:
   - jekyll-feed
 remote_theme: "jekyll/minima@1e8a445"
 minima:
   skin: dark
-
+  nav_pages:
+    - about.md
+    - portfolio.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
