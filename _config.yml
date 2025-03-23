@@ -22,10 +22,10 @@ title: Misha's Meanderings
 email: misha.rubanov.1@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Molecular, software, and robotics programmer interested in building novel tools to enable scaled, robust, and
-modelable experiments. I enjoy being on the interface between science and engineering, be it via
-experimental/SOP design, building custom UIs for other scientists, or improving developer interfaces for
-custom SDKs. My experience in molecular programming has given me a unique lens in which to apply a
-programming mindset towards problems in a wide variety of fields.
+  modelable experiments. I enjoy being on the interface between science and engineering, be it via
+  experimental/SOP design, building custom UIs for other scientists, or improving developer interfaces for
+  custom SDKs. My experience in molecular programming has given me a unique lens in which to apply a
+  programming mindset towards problems in a wide variety of fields.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: jekyllrb
@@ -37,7 +37,7 @@ plugins:
 # main branch of choice (from readme)
 remote_theme: "jekyll/minima@1e8a445"
 minima:
-  skin: solarized-dark
+  skin: auto
   nav_pages:
     - about.md
     - portfolio.md
