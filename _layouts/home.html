@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: base
 ---
 
 <div class="home">
@@ -7,7 +7,9 @@ layout: default
     <h1 class="page-heading">{{ page.title }}</h1>
   {%- endif -%}
 
-  {{ content }}
+  <div class="content">
+    {{ content }}
+  </div>
 
   {%- if site.posts.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
@@ -27,8 +29,6 @@ layout: default
       </li>
       {%- endfor -%}
     </ul>
-
-    <p class="feed-subscribe"><svg class="svg-icon orange"><use xlink:href="{{ '/assets/minima-social-icons.svg#rss' | relative_url }}"></use></svg><a href="{{ "/feed.xml" | relative_url }}">Subscribe</a></p> 
-    {%- endif -%}
+  {%- endif -%}
 
 </div>

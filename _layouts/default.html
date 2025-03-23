@@ -1,4 +1,3 @@
-<!-- _layouts/default.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,10 +18,12 @@
     </nav>
   </header>
   <main>
-    {{ content }}
+    <div class="content-wrapper">
+      {{ content }}
+    </div>
   </main>
   <footer>
-    <p>&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+    {%- include footer.html -%}
   </footer>
 </body>
 </html>
