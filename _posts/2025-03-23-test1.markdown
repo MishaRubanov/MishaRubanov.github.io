@@ -5,3 +5,17 @@ date:   2025-03-23 12:00:45 -0600
 categories: jekyll update
 ---
 How good is this?
+
+<!-- Add the slider -->
+<div>
+  <label for="slider">Rate this post:</label>
+  <input type="range" id="slider" name="slider" min="1" max="10" value="5" oninput="updateSliderValue(this.value)">
+  <span id="sliderValue">5</span>
+</div>
+
+<!-- Add JavaScript to handle the slider value -->
+<script>
+function updateSliderValue(value) {
+  document.getElementById('sliderValue').innerText = value;
+}
+</script>
