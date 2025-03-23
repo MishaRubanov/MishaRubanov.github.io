@@ -40,8 +40,8 @@ minima:
   skin: auto
   nav_pages:
     - about.md
-    - portfolio.md
-    - test.md
+    - CV.md
+    - publications.md
 
 # Exclude from processing.
 # The following items will not be processed, by default.
