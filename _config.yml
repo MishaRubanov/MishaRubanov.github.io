@@ -42,6 +42,17 @@ minima:
     - about.md
     - CV.md
     - publications.md
+  social_links:
+    - title: Misha's GitHub
+      icon: github
+      url: "https://github.com/MishaRubanov"
+    - title: LinkedIn
+      icon: linkedin
+      url: "https://www.linkedin.com/in/misha-rubanov/"
+
+author:
+  name: Misha Rubanov
+  email: "misha.rubanov.1@com"
 
 # Exclude from processing.
 # The following items will not be processed, by default.
