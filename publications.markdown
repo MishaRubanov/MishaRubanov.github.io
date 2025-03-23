@@ -27,4 +27,4 @@ robots: noindex
 - "Chen, Kuan-Lin; Cole, Joshua; Chou, Cheng-Hung; Schaffter, Samuel W; Moerman, Pepijn; Rubanov, Moshe; Sneh, Keren; Schulman, Rebecca; ",**Hydrogels with Tethered Transcription Circuit Elements for Chemical Communication and Collective Computation**,,,,,2024,
 
 
-Google scholar [profile](https://scholar.google.com/citations?user=WoX0sMYAAAAJ&hl=en)
+### Google scholar [profile](https://scholar.google.com/citations?user=WoX0sMYAAAAJ&hl=en)
