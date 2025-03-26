@@ -37,7 +37,7 @@ plugins:
 # main branch of choice (from readme)
 remote_theme: "jekyll/minima@1e8a445"
 minima:
-  skin: auto
+  skin: dark
   nav_pages:
     - CV.md
     - about.md
@@ -53,6 +53,9 @@ minima:
 author:
   name: Misha Rubanov
   email: "misha.rubanov.1@com"
+
+include:
+  ['jupyter']
 
 # Exclude from processing.
 # The following items will not be processed, by default.
