@@ -7,7 +7,7 @@ categories: jekyll update
 For the last few months, I've wanted to write a basic Turing pattern simulator as a tattoo - representing the beauty of these reaction diffusion patterns in life. I would like this to be a dot pattern as well.
 
 <!-- Embed the tattoo.html file from a different repository -->
-<iframe src="/tattoo.html" width="100%" height="600" title="Tattoo Content"></iframe>
+<iframe src="jupyter/tattoo.html" width="100%" height="600" title="Tattoo Content"></iframe>
 
 <!-- Add the slider -->
 <div>
