@@ -54,8 +54,10 @@ author:
   name: Misha Rubanov
   email: "misha.rubanov.1@com"
 
-include:
-  - jupyter/
+
+collections:
+  - jupyter
+
 
 # Exclude from processing.
 # The following items will not be processed, by default.
