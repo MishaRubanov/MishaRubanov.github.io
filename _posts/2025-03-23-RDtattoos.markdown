@@ -7,7 +7,13 @@ categories: jekyll update
 For the last few months, I've wanted to write a basic Turing pattern simulator as a tattoo - representing the beauty of these reaction diffusion patterns in life. I would like this to be a dot pattern as well. This barebones repository can be found at this [repository](https://github.com/MishaRubanov/RDtattoo). A lot of this effort was inspired and adapted from this [repo](https://github.com/ijmbarr/turing-patterns/blob/master/turing-patterns.ipynb).
 
 <!-- Embed the tattoo.html file from a different repository -->
-<iframe src="/_jupyter/tattoo.html" width="100%" height="600" title="Tattoo Content"></iframe>
+You can view the [Tattoo Notebook]({{ site.jupyter | where: "path", "jupyter/tattoo.html" | first.url }}).
+
+Alternatively, using the filename directly:
+
+You can view the [Tattoo Notebook]({{ site.baseurl }}/jupyter/tattoo.html).
+
+<iframe src="{{ site.baseurl }}/jupyter/tattoo.html" width="100%" height="600" title="Tattoo Notebook"></iframe>
 
 <!-- Add the slider -->
 <div>
