@@ -55,7 +55,7 @@ author:
   email: "misha.rubanov.1@com"
 
 include:
-  ['jupyter']
+  - jupyter/
 
 # Exclude from processing.
 # The following items will not be processed, by default.
