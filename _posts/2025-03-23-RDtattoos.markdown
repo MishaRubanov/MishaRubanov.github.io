@@ -11,7 +11,7 @@ Alternatively, using the filename directly:
 
 You can view the [Tattoo Notebook]({{ site.baseurl }}/jupyter/tattoo.html).
 
-<iframe src="/_jupyter/tattoo.html" width="100%" height="1000" title="Tattoo Notebook"></iframe>
+<iframe src="/_jupyter/tattoo.html" width="100%" height="800px" title="Tattoo Notebook"></iframe>
 
 <iframe
   src="https://jupyterlite.github.io/demo/repl/index.html?kernel=python&toolbar=1"
@@ -33,3 +33,8 @@ function updateSliderValue(value) {
   document.getElementById('sliderValue').innerText = value;
 }
 </script>
+
+<iframe
+  src="https://rdtattoos.streamlit.app/?embed=true"
+  style="height: 450px; width: 100%;"
+></iframe>
