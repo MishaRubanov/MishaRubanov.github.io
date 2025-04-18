@@ -36,5 +36,5 @@ function updateSliderValue(value) {
 
 <iframe
   src="https://rdtattoos.streamlit.app/?embed=true"
-  style="height: 450px; width: 100%;"
+  style="height: 700px; width: 100%;"
 ></iframe>
