@@ -44,6 +44,7 @@ minima:
     - publications.md
     - bookshelf.md
     - code.md
+    - dashboard.md
   social_links:
     - title: Misha's GitHub
       icon: github
