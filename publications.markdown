@@ -3,7 +3,7 @@ layout: page
 permalink: /publications/
 published: true
 categories: research
-title: publications
+title: Publications
 tags: [publications, research]
 date: 2023-10-01
 author: Misha Rubanov

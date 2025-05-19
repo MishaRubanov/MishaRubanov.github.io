@@ -40,8 +40,7 @@ minima:
   skin: dark
   nav_pages:
     - CV.md
-    - about.md
-    - publications.md
+    - Publications.md
     - bookshelf.md
     - code.md
     - dashboard.md
@@ -52,6 +51,9 @@ minima:
     - title: LinkedIn
       icon: linkedin
       url: "https://www.linkedin.com/in/misha-rubanov/"
+    - title: CV
+      icon: cv.svg
+      url: "https://misharubanov.com/CV.pdf"
 
 author:
   name: Misha Rubanov
