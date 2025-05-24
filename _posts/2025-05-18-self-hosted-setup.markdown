@@ -63,6 +63,9 @@ A beautiful, self-hosted monitoring tool. I use it to keep tabs on all my servic
 #### 4. **Glance**
 A nice easily customizable [dashboard](dashboard.misharubanov.com) that let's me browse RSS feeds, weather, docker containers, websites, and a bunch of other stuff. It's focused on being very mobile-compatible, which is great for checking on all my self-hosted apps and server when travelling.
 
+#### 5. **Duplicati**
+A straightforward tool for monitoring and setting up backups. I get to back up my files to a variety of cloud services, via FTP, and locally as a final precaution. 
+
 ### 🏗️ How It All Fits Together
 
 - **Code** lives in GitHub.
@@ -73,7 +76,7 @@ A nice easily customizable [dashboard](dashboard.misharubanov.com) that let's me
 ## Content and other apps
 
 #### 1. **Audiobookshelf**
-My audiobook and ebook content management [platform](http://bookshelf.misharubanov.com/). This was actually the onus for going down this self-hosted rabbit hole - when I discovered that the library of kindle books I purchased was [no longer able to be downloaded](https://www.theverge.com/news/612898/amazon-removing-kindle-book-download-transfer-usb), I decided that it was time to set up my own library before that updated policy was implemented. Audiobookshelf is a great dockerized app that made it easy to self-host a browse-able library, manage library users, and listen/read in-browser.
+My audiobook and ebook content management [platform](http://bookshelf.misharubanov.com/). This was actually the onus for going down this self-hosted rabbit hole - when I discovered that the library of kindle books I purchased was [no longer able to be downloaded](https://www.theverge.com/news/612898/amazon-removing-kindle-book-download-transfer-usb), I decided that it was time to set up my own library before that updated policy was implemented. Audiobookshelf is a great dockerized app that made it easy to self-host a browse-able library, manage library users, and listen/read in-browser. They also have a great android app, which makes offline listening/reading easier too.
 
 #### 2. **Immich**
 A privacy-friendly self-hosted [alternative](https://immich.app/) to Google photos, with a lot of the same features (CV-based facial recognition, etc.). This is something I'm still developing - having TB+ levels of photos means this only makes sense if I connect a NAS to my remote server (buying TBs of storage doesn't really make financial sense). 
