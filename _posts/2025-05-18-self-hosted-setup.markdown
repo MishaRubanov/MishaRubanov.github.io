@@ -78,8 +78,8 @@ My audiobook and ebook content management [platform](http://bookshelf.misharuban
 #### 2. **Immich**
 A privacy-friendly self-hosted [alternative](https://immich.app/) to Google photos, with a lot of the same features (CV-based facial recognition, etc.). This is something I'm still developing - having TB+ levels of photos means this only makes sense if I connect a NAS to my remote server (buying TBs of storage doesn't really make financial sense). 
 
-#### 3. **WebTrees**
-After a trip to my see my ancestry in Uzbekistan, I wanted to self-host my family tree and add as much information as we know about our ancestors 4+ generations ago. While the UI is not the most intuitive, this  allows both for storing and backing up all data in WEBCOM format
+#### 3. **Gramps Web**
+After a trip to my see my ancestry in Uzbekistan, I wanted to self-host my family tree and add as much information as we know about our ancestors 4+ generations ago. This [app](https://family.misharubanov.com/) allows me to create users for my family (each who have either editor/guest privileges) and can both modify the family tree and add media files so we can perserve this for future generations. I'm creating both hot and cold backups to ensure that this information sticks around.
 
 #### 4. **Vikunja**
 A nice, lightweight todo [app](https://todo.misharubanov.com/) that let's me keep track of all necessary tasks on my own. This is just nice to give me total control over - it's similar to the variety of budgeting/finance apps - they aren't as great as the latest and greatest company apps, but the tradeoff seems well worth it to me.
