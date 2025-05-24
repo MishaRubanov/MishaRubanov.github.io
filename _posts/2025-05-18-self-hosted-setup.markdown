@@ -6,10 +6,10 @@ page_excerpts: True
 ---
 
 ## Server infrastructure: Hetzner
-I chose Hetzner as my hosting provider for several compelling reasons:
+I chose Hetzner as my hosting provider for several reasons:
 
 ### 💰 Cost-Effective
-Hetzner offers some of the most competitive prices in the industry. Their dedicated servers and cloud instances are significantly cheaper than comparable offerings from AWS, DigitalOcean, or Linode. For example, their CAX21 ARM cloud server (Ampere Altra, 4 vCPUs, 8GB RAM, 80GB NVMe) costs just €6.49/month (at the time of writing this). Simple tutorials for setting up servers based on standard images (i.e., ubuntu) or snapshots can be found [here](https://docs.hetzner.com/cloud/servers/getting-started/creating-a-server/). They also made it really easy to set up [coolify](https://community.hetzner.com/tutorials/install-and-configure-coolify-on-linux).
+Hetzner offers some of the most competitive prices in the industry - significantly cheaper than comparable offerings from AWS, DigitalOcean, or Linode. For example, their CAX21 ARM cloud server (Ampere Altra, 4 vCPUs, 8GB RAM, 80GB NVMe) costs just €6.49/month (at the time of writing this). Simple tutorials for setting up servers based on standard images (i.e., ubuntu) or snapshots can be found [here](https://docs.hetzner.com/cloud/servers/getting-started/creating-a-server/). They also made it really easy to set up [coolify](https://community.hetzner.com/tutorials/install-and-configure-coolify-on-linux).
 
 
 ### 🔧 Management Tools
@@ -39,7 +39,7 @@ One of the standout tools in my stack is **Coolify**—an open-source, self-host
 
 ### 🚀 Coolify: The Heart of My Deployment
 
-[Coolify](https://coolify.io/) is a modern platform that lets you deploy applications, databases, and static sites with ease. It supports Docker, integrates with Git, and has a  web UI for managing deployments. I use Coolify to:
+[Coolify](https://coolify.io/) is a modern management platform that easily lets you deploy applications, databases, and static sites. It supports Docker, integrates with Git, and has a web UI for managing deployments. I use Coolify to:
 
 - Deploy Python, and static sites directly from GitHub (public and private repos work)
 - Manage Docker containers and images.
@@ -47,7 +47,7 @@ One of the standout tools in my stack is **Coolify**—an open-source, self-host
 - Monitor resource usage and logs in real time.
 - Find inspiration for cool open-source docker-based projects that people have made into one-click deployments
 
-It's far from a perfect tool - but honestly it's just a great way to learn how to manage docker containers all living on the same server, each pointing to a different DNS. There are still mysteries to me (and to the self-hosting [reddit community](https://www.reddit.com/r/coolify/comments/1ivslne/nothing_works_on_coolify/)) on exactly what Docker is doing, since it's just a thin docker + traefik wrapper with a UI. But for now it seems to work enough - although dealing with how to wire certain apps through my firewall has been quite difficult.
+It's far from a perfect tool - but honestly it's just a great way to learn how to manage docker containers all living on the same server, each pointing to a different DNS. There are still mysteries to me (and to the self-hosting [reddit community](https://www.reddit.com/r/coolify/comments/1ivslne/nothing_works_on_coolify/)) on exactly what Coolify is doing, since it's just a thin docker + traefik wrapper with a UI. But for now it seems to work well enough - although dealing with how to wire certain apps through my Cloudflare firewall has been quite a pain.
 
 ### 🛠️ Other Tools in My Stack
 
@@ -72,22 +72,18 @@ A nice easily customizable [dashboard](dashboard.misharubanov.com) that let's me
 
 ## Content and other apps
 
-### 1. **Audiobookshelf**
+#### 1. **Audiobookshelf**
 My audiobook and ebook content management [platform](http://bookshelf.misharubanov.com/). This was actually the onus for going down this self-hosted rabbit hole - when I discovered that the library of kindle books I purchased was [no longer able to be downloaded](https://www.theverge.com/news/612898/amazon-removing-kindle-book-download-transfer-usb), I decided that it was time to set up my own library before that updated policy was implemented. Audiobookshelf is a great dockerized app that made it easy to self-host a browse-able library, manage library users, and listen/read in-browser.
 
-### 2. **Immich**
+#### 2. **Immich**
 A privacy-friendly self-hosted [alternative](https://immich.app/) to Google photos, with a lot of the same features (CV-based facial recognition, etc.). This is something I'm still developing - having TB+ levels of photos means this only makes sense if I connect a NAS to my remote server (buying TBs of storage doesn't really make financial sense). 
 
-### 3. **WebTrees**
+#### 3. **WebTrees**
 After a trip to my see my ancestry in Uzbekistan, I wanted to self-host my family tree and add as much information as we know about our ancestors 4+ generations ago. While the UI is not the most intuitive, this  allows both for storing and backing up all data in WEBCOM format
 
-### 4. **Vikunja**
+#### 4. **Vikunja**
 A nice, lightweight todo [app](https://todo.misharubanov.com/) that let's me keep track of all necessary tasks on my own. This is just nice to give me total control over - it's similar to the variety of budgeting/finance apps - they aren't as great as the latest and greatest company apps, but the tradeoff seems well worth it to me.
 
-### 5. **CodeServer**
+#### 5. **CodeServer**
 To be honest, this is a service I won't be using really often. This allows vscode to run on my server natively - but it's really only useful if I want to give my dev environment to someone else. A lot of the self-hosted community feels the same way - [it's just easier to use an SSH key instead of an in-browser server.](https://www.reddit.com/r/selfhosted/comments/15lqvyz/anyone_else_hosting_codeserver/) Personally, I prefer to use cursor and ssh directly from my local IDE.
-
-### 💡 Why Self-Host?
-
-Self-hosting gives me full control, privacy, and the freedom to experiment. It's a learning journey, and with tools like Coolify, it's never been easier to get started.
 
