@@ -66,6 +66,9 @@ A nice easily customizable [dashboard](dashboard.misharubanov.com) that let's me
 #### 5. **Duplicati**
 A straightforward tool for monitoring and setting up backups. I get to back up my files to a variety of cloud services, via FTP, and locally as a final precaution. 
 
+#### 6. **Dozzle**
+A straightforward UI for monitoring docker container CPU/memory usage.
+
 ### 🏗️ How It All Fits Together
 
 - **Code** lives in GitHub.
