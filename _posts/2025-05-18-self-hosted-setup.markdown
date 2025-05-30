@@ -64,10 +64,13 @@ A beautiful, self-hosted monitoring tool. I use it to keep tabs on all my servic
 A nice easily customizable [dashboard](dashboard.misharubanov.com) that let's me browse RSS feeds, weather, docker containers, websites, and a bunch of other stuff. It's focused on being very mobile-compatible, which is great for checking on all my self-hosted apps and server when travelling.
 
 #### 5. **Duplicati**
-A straightforward tool for monitoring and setting up backups. I get to back up my files to a variety of cloud services, via FTP, and locally as a final precaution. 
+A straightforward tool for monitoring and setting up backups. I get to back up my files to a variety of cloud services, via WEBDAV, and locally as a final precaution. 
 
 #### 6. **Dozzle**
-A straightforward UI for monitoring docker container CPU/memory usage.
+A straightforward UI for monitoring docker container CPU/memory usage and real-time logs for debugging.
+
+#### 7. **ntfy**
+Push notificaiton service for when any of my subdomains go down.****
 
 ### 🏗️ How It All Fits Together
 
