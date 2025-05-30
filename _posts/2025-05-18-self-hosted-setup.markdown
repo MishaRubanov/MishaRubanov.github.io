@@ -57,20 +57,25 @@ Coolify's default proxy. Traefik automatically handles SSL certificates (via Let
 #### 2. **Cloudflare**
 For DNS management, DDoS protection, and caching. Cloudflare sits in front of my self-hosted services for extra security and performance. Cloudflare tunnels also enable secure access to all apps without needing to expose a public IP to the internet - I followed this [article](https://rasmusgodske.com/posts/securely-expose-your-coolify-apps-with-the-magic-of-cloudflare-tunnels/) which was very helpful. 
 
-#### 3. **Uptime Kuma**
-A beautiful, self-hosted monitoring tool. I use it to keep tabs on all my services and get alerts if anything goes down.
+### Monitoring tools
 
-#### 4. **Glance**
+#### 1. **Uptime Kuma**
+A lightweight, self-hosted monitoring [tool](https://uptime.misharubanov.com/) for seeing whether websites are up or down. I use it to keep tabs on all my services and get alerts if anything goes down.
+
+#### 2. **Glance**
 A nice easily customizable [dashboard](dashboard.misharubanov.com) that let's me browse RSS feeds, weather, docker containers, websites, and a bunch of other stuff. It's focused on being very mobile-compatible, which is great for checking on all my self-hosted apps and server when travelling.
 
-#### 5. **Duplicati**
+#### 3. **Duplicati**
 A straightforward tool for monitoring and setting up backups. I get to back up my files to a variety of cloud services, via WEBDAV, and locally as a final precaution. 
 
-#### 6. **Dozzle**
+#### 4. **Dozzle**
 A straightforward UI for monitoring docker container CPU/memory usage and real-time logs for debugging.
 
-#### 7. **ntfy**
-Push notificaiton service for when any of my subdomains go down.****
+#### 5. **ntfy**
+Push notificaiton service for when any of my subdomains go down.
+
+#### 6. **Beszel**
+Server monitoring. This tool is a fantastic way to see what's going on with my server - it allows me to set up notifications when memory/CPU are being overused, and it shows me which docker containers are the culprits. Combining this with **Dozzle** lets me debug any issues quickly.
 
 ### 🏗️ How It All Fits Together
 
@@ -92,7 +97,4 @@ After a trip to my see my ancestry in Uzbekistan, I wanted to self-host my famil
 
 #### 4. **Vikunja**
 A nice, lightweight todo [app](https://todo.misharubanov.com/) that let's me keep track of all necessary tasks on my own. This is just nice to give me total control over - it's similar to the variety of budgeting/finance apps - they aren't as great as the latest and greatest company apps, but the tradeoff seems well worth it to me.
-
-#### 5. **CodeServer**
-To be honest, this is a service I won't be using really often. This allows vscode to run on my server natively - but it's really only useful if I want to give my dev environment to someone else. A lot of the self-hosted community feels the same way - [it's just easier to use an SSH key instead of an in-browser server.](https://www.reddit.com/r/selfhosted/comments/15lqvyz/anyone_else_hosting_codeserver/) Personally, I prefer to use cursor and ssh directly from my local IDE.
 
