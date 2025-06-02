@@ -52,7 +52,7 @@ minima:
       icon: linkedin
       url: "https://www.linkedin.com/in/misha-rubanov/"
     - title: CV
-      icon: cv.svg
+      icon: cv
       url: "https://misharubanov.com/CV.pdf"
 
 author:

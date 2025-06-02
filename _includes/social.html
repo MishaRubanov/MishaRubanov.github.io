@@ -1,0 +1,41 @@
+{%- if site.minima.social_links -%}
+<ul class="social-media-list">
+  {%- for entry in site.minima.social_links -%}
+    <li>
+      <a rel="me" href="{{ entry.url }}" target="_blank" title="{{ entry.title }}">
+        {%- if entry.icon == "cv" -%}
+          <span class="social-icon" style="width:1.25em;height:1.25em;vertical-align:middle;display:inline-block;color:#828282;">
+            <svg viewBox="0 0 485.212 485.212" xmlns="http://www.w3.org/2000/svg">
+              <g fill="currentColor">
+                <path fill="currentColor" d="M333.584,363.906h121.303L333.584,485.212V363.906z M303.253,348.748v136.465H60.649
+                c-16.746,0-30.324-13.562-30.324-30.326V30.327C30.325,13.567,43.904,0,60.649,0H424.56c16.765,0,30.327,13.567,30.327,30.327
+                v303.258H318.421C310.04,333.584,303.253,340.37,303.253,348.748z M90.976,106.141c0,8.379,6.781,15.163,15.161,15.163h272.938
+                c8.378,0,15.159-6.784,15.159-15.163c0-8.382-6.781-15.164-15.159-15.164H106.137C97.757,90.978,90.976,97.759,90.976,106.141z
+                M90.976,197.119c0,8.38,6.781,15.163,15.161,15.163h272.938c8.378,0,15.159-6.783,15.159-15.163
+                c0-8.382-6.781-15.164-15.159-15.164H106.137C97.757,181.955,90.976,188.736,90.976,197.119z M379.075,303.257
+                c8.378,0,15.159-6.781,15.159-15.163c0-8.383-6.781-15.164-15.159-15.164H106.137c-8.38,0-15.161,6.781-15.161,15.164
+                c0,8.382,6.781,15.163,15.161,15.163H379.075z"/>
+              </g>
+            </svg>
+          </span>
+        {%- else -%}
+          <span class="grey fa-brands fa-{{ entry.icon }} fa-lg"></span>
+        {%- endif -%}
+      </a>
+    </li>
+  {%- endfor -%}
+  {% unless site.minima.hide_site_feed_link %}
+    <li>
+      <a href="{{ site.feed.path | default: 'feed.xml' | absolute_url }}" target="_blank" title="Subscribe to syndication feed">
+        <svg class="svg-icon grey" viewBox="0 0 16 16" style="width:1.25em;height:1.25em;vertical-align:middle;display:inline-block;">
+          <path d="M12.8 16C12.8 8.978 7.022 3.2 0 3.2V0c8.777 0 16 7.223 16 16h-3.2zM2.194
+            11.61c1.21 0 2.195.985 2.195 2.196 0 1.21-.99 2.194-2.2 2.194C.98 16 0 15.017 0
+            13.806c0-1.21.983-2.195 2.194-2.195zM10.606
+            16h-3.11c0-4.113-3.383-7.497-7.496-7.497v-3.11c5.818 0 10.606 4.79 10.606 10.607z"
+          />
+        </svg>
+      </a>
+    </li>
+  {%- endunless %}
+</ul>
+{%- endif -%} 
