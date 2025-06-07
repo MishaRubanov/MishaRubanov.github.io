@@ -1,0 +1,106 @@
+---
+layout: post
+title:  "Building a reaction-diffusion simulator"
+date:   2025-06-07 12:00:45 -0600
+categories: jekyll update
+---
+## Introduction
+Turing patterns (and more broadly, reaction-diffusion phenomena) have had a large impact on my life over the last few years - from the idea that simple mathematical models can lead to these complex, seen-in-nature patterns, to the idea that phenomena such as morphogenesis and embryogenesis can be modeled using these same principles. One of my favorite papers, [Growing Neural Cellular Automata](https://distill.pub/2020/growing-ca/), is based on this principle. Instead of taking the approach of modeling reaction-diffusion using this method, this paper approached the problem by approximating partial differential equations as discrete blocks (cellular automata) - not that different from normal finite element analysis methods which create non-uniform discrete meshes. 
+
+This was inspiration for a lot of the work I did during my PhD - I was fascinated with the ability to recreate a lot of these reaction-diffusion patterns seen throughout biology. In particular, I fell in love with the idea that complex, emergent systems can be simulated using first-principles or data-driven approaches, and even recreated in the lab if the simulated principles were cleverly designed.
+
+I wanted to at least design a simple CA-based approach for solving some of the most famous Turing patterns using a readable,  developer-friendly python package that I could then use to design a tattoo that memorializes this chapter in my life.
+
+The code for developing this tattoo can be found at [repository](https://github.com/MishaRubanov/RDtattoo). A lot of this effort was inspired from this [repo](https://github.com/ijmbarr/turing-patterns/blob/master/turing-patterns.ipynb).
+
+A jupyter notebook with the reaction-diffusion simulator environment (and a few examples) can be found at [https://tattoonotebook.misharubanov.com](https://tattoonotebook.misharubanov.com)  and a streamlit app for no-code simulator exploration can be found at [https://rdapp.misharubanov.com/](https://rdapp.misharubanov.com/).
+
+## Setting up the code
+This codebase can be divided into three main components:  simulation, visualization, and default generation.
+
+### Simulation
+The [simulator](https://github.com/MishaRubanov/RDtattoo/blob/main/rdtattoo/tattoo_functions.py) was developed with scalability and modularity in mind - the overarching goal was to be able not only to simulate any 2-species reactions-diffusion system, but also to be able to easily add new reaction systems and default values as needed, as well as any initial conditions for the two species. The `ReactionFunction` protocol implements the general structure that each reaction-diffusion equation should take - as input it takes two arrays (each describing the a/b variables) and two constants (describing the reaction rates).
+
+```python
+@runtime_checkable
+class ReactionFunction(Protocol):
+    """Protocol defining the interface for reaction functions.
+
+    A reaction function calculates the rate of change for a chemical species
+    based on the current concentrations of both species and reaction parameters.
+
+    Methods:
+        __call__: Calculate the reaction rate for a species.
+    """
+
+    def __call__(
+        self, a: FloatArrayType, b: FloatArrayType, alpha: float, beta: float
+    ) -> FloatArrayType: ...
+```
+
+ The simulator can then be instantiated with diffusion coefficients, rate constants, simulation parameters (height/width/time or space resolution) and the `ReactionType` (an `Enum` that specifies which set of reactions to use):
+
+ ```python
+ class ReactionType(Enum):
+    """Enumeration of available reaction-diffusion system types.
+
+    Each reaction type represents a different chemical reaction system with its own
+    mathematical equations and behavior patterns.
+
+    Values:
+        BRUSSELATOR: The Brusselator model, a theoretical model for a type of
+            autocatalytic reaction.
+        FITZHUGH_NAGUMO: The FitzHugh-Nagumo model, a simplified model of
+            neuron behavior.
+        GRAY_SCOTT: The Gray-Scott model, a reaction-diffusion system that can
+            produce various patterns.
+    """
+
+    BRUSSELATOR = 1
+    FITZHUGH_NAGUMO = 2
+    GRAY_SCOTT = 3
+```
+The simulator is built on Pydantic's [BaseModel](https://docs.pydantic.dev/latest/concepts/models/) which provides a lot of powerful tools to automatically validate the model before running it. This actually blocked development for a bit - as I was having difficulty in figuring out the best way to define `ReactionType` without going through the effort of [defining my own custom types.](https://docs.pydantic.dev/latest/concepts/types/#custom-types). The solution I ended up going with was foreshadowed above - by storing all relevant information in an `Enum`, I can just save the `Enum` field within my simulator (for JSON dumping/loading and validation) and use that information to load the actual reaction functions into private fields that are not serialized/saved. Using this approach, a simulation run can be reliably recreated using the validated simulator parameters and the initial conditions for both species
+
+### Visualization
+Once the simulation was completed, I needed some way to actually visualize the evolution of both species without storing every 2D frame. For this reason, I added the ability to specify the total number of frames when running the simulation to visualize.
+
+The backbone for visualizing these simulations was to generate videos using Plotly. Once the simulation was completed, the `def run()` method output both a/b 3D arrays (the first dimension being frames over time) as well as the total number of time steps calculated.
+
+These values can then be used as input to create animations within the [tattoo_plotter](https://github.com/MishaRubanov/RDtattoo/blob/main/rdtattoo/tattoo_plotter.py). 
+
+One limitation of this visualization method, however, is that rerunning these functions requires re-instantiating a new simulator and initial conditions, and running individually. I think that exploring this phase-space would be much more interesting if the simulations had an easy-to-use GUI - enter [Streamlit](https://streamlit.io/). Building a streamlit app is incredibly easy - and due to the well-typed simulator, being able to visualize (with parameter hints) became trivial. I developed a [streamlit app](https://github.com/MishaRubanov/RDtattoo/blob/main/rdtattoo/rd_simulator_gui.py) that populates a set of parameters based on the field inputs, and allows a user to no-code run the simulator for both the pre-populated defaults as well as for any type of parameters the user is interested in. Switching between different reaction types enables the user to easily explore parameter spaces. Additionally, brief descriptions on how the different reaction types were set up (and their physical interpretations) were added to help remind the user (including myself) what each parameter means. The app can be found at https://rdapp.misharubanov.com/. If for some reason my server goes down, streamlit allows hosting of a few apps - you can find this app at https://rdtattoos.streamlit.app. 
+
+Details on implementation of the app backend and self-hosting the app can be found in the [infrastructure section](#infrastructure).
+
+### Default Generation
+Defaults were scraped from various parts of the web as well as some interesting parameters I found when exploring the simulation myself. These defaults were stored as [instances](https://github.com/MishaRubanov/RDtattoo/blob/main/rdtattoo/rd_defaults.py) of the general `RDSimulator`.
+
+### Future development (hopefully)
+I would love to instantiate a SQL database that automatically logs all runs, so that when a user is exploring new parameter spaces they have to keep track of the parameters used, and having a nice represenation of the parameter and output space as a method that the user could call would be nice too!
+
+For visualization, a lot could be improved in the GUI - from optimizing simulation times to removing deadspace around the animations. Hopefully I can do this at some point!
+
+## Infrastructure
+To develop a reliable and clean environment for running this code, I chose to use Docker to deploy both a Jupyter [notebook](https://tattoonotebook.misharubanov.com/login?next=%2Flab%3F) and a streamlit [app](https://rdapp.misharubanov.com/). This had the added benefit of easily working with my [self-hosted stack](https://misharubanov.github.io/2025/05/18/self-hosted-setup.html). To install the same environment within my jupyter notebook, I reorganized the notebook to be pip-installable as a local package:
+
+```Docker
+FROM quay.io/jupyter/base-notebook
+WORKDIR /home/jovyan/work
+COPY . .
+RUN pip install --no-cache-dir -r requirements.txt && \
+    pip install -e .
+EXPOSE 8888
+ENV JUPYTER_ENABLE_LAB=yes
+RUN jupyter notebook --generate-config && \
+    echo "c.NotebookApp.password='argon2:$argon2id$v=19$m=10240,t=10,p=8$W/YoaK1HmUWy4ITRrMArwg$3s7sDEPluB2Cp97GURa1+cs0L4/uNruSYE9uXjjYxCA'" >> /home/jovyan/.jupyter/jupyter_notebook_config.py
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"] 
+```
+For added security, I created a hashed password that would prevent running rogue python within these notebooks from anywhere on the internet (send me a message if you want to try it out!).
+
+For streamlit, the environment looks similar except that instead of opening a notebook, `streamlit run...` enables generation of the app.
+
+For deploying to a DNS subdomain, I used coolify with a github webhook to automatically redeploy this public repository (more details [here](https://misharubanov.github.io/2025/05/18/self-hosted-setup.html)).
+
+## Next steps
+Now that I have the infrastructure in place to really explore these patterns, I want to focus on using them as a symbol for my relationship to science and engineering. My next post will be exploring the personal significance that these patterns have had over the last ~7 years of my life.
