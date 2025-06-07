@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Building a reaction-diffusion simulator"
-date:   2025-06-07 12:00:45 -0600
+date:   2025-06-06 12:00:45 -0600
 categories: jekyll update
 ---
 ## Introduction
