@@ -84,7 +84,7 @@ For visualization, a lot could be improved in the GUI - from optimizing simulati
 ## Infrastructure
 To develop a reliable and clean environment for running this code, I chose to use Docker to deploy both a Jupyter [notebook](https://tattoonotebook.misharubanov.com/login?next=%2Flab%3F) and a streamlit [app](https://rdapp.misharubanov.com/). This had the added benefit of easily working with my [self-hosted stack](https://misharubanov.github.io/2025/05/18/self-hosted-setup.html). To install the same environment within my jupyter notebook, I reorganized the notebook to be pip-installable as a local package:
 
-```Docker
+```docker
 FROM quay.io/jupyter/base-notebook
 WORKDIR /home/jovyan/work
 COPY . .
