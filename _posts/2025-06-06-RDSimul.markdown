@@ -2,7 +2,6 @@
 layout: post
 title:  "Building a reaction-diffusion simulator"
 date:   2025-06-06 12:00:45 -0600
-categories: jekyll update
 ---
 ## Introduction
 Turing patterns (and more broadly, reaction-diffusion phenomena) have had a large impact on my life over the last few years - from the idea that simple mathematical models can lead to these complex, seen-in-nature patterns, to the idea that phenomena such as morphogenesis and embryogenesis can be modeled using these same principles. One of my favorite papers, [Growing Neural Cellular Automata](https://distill.pub/2020/growing-ca/), is based on this principle. Instead of taking the approach of modeling reaction-diffusion using this method, this paper approached the problem by approximating partial differential equations as discrete blocks (cellular automata) - not that different from normal finite element analysis methods which create non-uniform discrete meshes. 
